@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import HomeShimmer from '../shimmerUI/HomeShimmer';
 import ShowProduct from './ShowProduct';
 import { REACT_APP_PRODUCTS_API } from '../utils';
+import { userContext } from '../context/UserContext';
 
 export default function Home() {
 
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const {setIsLoggedIn} = useContext(userContext);
+
 
   useEffect(() => {
-    fetch(REACT_APP_PRODUCTS_API)
+
+    const fetchData = () =>{
+
+      fetch(REACT_APP_PRODUCTS_API)
       .then(res => res.json())
       .then(result => {
         console.log('result', result)
@@ -19,15 +27,54 @@ export default function Home() {
       .catch(err => {
         console.log('error in fetching all products: ', err);
       })
+    }
+    fetchData();
+
+    setIsLoggedIn(localStorage.getItem('login'));
+
   }, []);
 
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Pass the search term to the parent component or perform the search logic here
+    console.log(searchTerm)
+    const filteredProducts = data.filter((product) =>
+      (product.title.toLowerCase()).includes(searchTerm.toLowerCase())
+    );
 
-  return filterData && filterData.length == 0 ? <HomeShimmer /> : (
+    console.log(filteredProducts);
+    setFilterData(filteredProducts);
+    
+  };
+
+  if(data.length == 0){
+    return <HomeShimmer/>
+  }
+
+
+  return (
     <div className='my-10'>
 
-      <input type="text" name="" id="" />
 
+      <form className="mb-14 flex justify-center border border-gray-500" onSubmit={handleSubmit}>
+        <div className="flex items-center">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border p-2 w-64 mr-2"
+          />
+          <button
+            type="submit"
+            className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            >
+            Search
+          </button>
+        </div>
+      </form>
+      {filterData && filterData.length == 0 ? <h1>No data found.</h1> : 
 
       <div className="container flex flex-wrap justify-between mx-auto">
 
@@ -35,6 +82,7 @@ export default function Home() {
           <ShowProduct data={currdata} key={currdata.id} />
         ))}
       </div>
+}
     </div>
   )
 }

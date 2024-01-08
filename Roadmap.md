@@ -6,7 +6,11 @@ cart page, from that remove from cart functionality
 setup context for user logic and for storing current user details
 redux for cart items
 useonline to proper message when user is offline
+Login
+user profile
 
 
 Completed: 
 product listing completed
+product details page
+login context, and localstorage
