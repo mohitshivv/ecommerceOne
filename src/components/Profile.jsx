@@ -3,28 +3,28 @@ import { userContext } from '../context/UserContext';
 
 const Profile = () => {
 
-    const user = {
-        "address": {
-            "geolocation": {
-                "lat": "50.3467",
-                "long": "-20.1310"
-            },
-            "city": "San Antonio",
-            "street": "Hunters Creek Dr",
-            "number": 6454,
-            "zipcode": "98234-1734"
-        },
-        "id": 4,
-        "email": "don@gmail.com",
-        "username": "donero",
-        "password": "ewedon",
-        "name": {
-            "firstname": "don",
-            "lastname": "romer"
-        },
-        "phone": "1-765-789-6734",
-        "__v": 0
-    }
+    // const user = {
+    //     "address": {
+    //         "geolocation": {
+    //             "lat": "50.3467",
+    //             "long": "-20.1310"
+    //         },
+    //         "city": "San Antonio",
+    //         "street": "Hunters Creek Dr",
+    //         "number": 6454,
+    //         "zipcode": "98234-1734"
+    //     },
+    //     "id": 4,
+    //     "email": "don@gmail.com",
+    //     "username": "donero",
+    //     "password": "ewedon",
+    //     "name": {
+    //         "firstname": "don",
+    //         "lastname": "romer"
+    //     },
+    //     "phone": "1-765-789-6734",
+    //     "__v": 0
+    // }
 
     
     const {logout} = useContext(userContext);
@@ -35,8 +35,8 @@ const Profile = () => {
             <h1>No SignIn user to go login</h1>
         )
     }
-    const user2 = JSON.parse(atob(storageData));
-    console.log(user2);
+    const user = JSON.parse(atob(storageData));
+    console.log(user);
     
 
     return (

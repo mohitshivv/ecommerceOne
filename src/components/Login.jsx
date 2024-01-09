@@ -38,7 +38,7 @@ export default function Login() {
       login(values);
       setTimeout(() => {
         formik.resetForm();
-        navigate('../profile');
+        navigate('/');
       }, 1000);
     },
     validationSchema: Yup.object({
