@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { userContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -37,6 +38,13 @@ const Profile = () => {
     }
     const user = JSON.parse(atob(storageData));
     console.log(user);
+
+    const navigate = useNavigate();
+
+    const handleLogout = ()=>{
+        logout();
+        navigate('/login');
+    }
     
 
     return (
@@ -64,7 +72,7 @@ const Profile = () => {
 
                 
                 <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">
                     Logout
                 </button>

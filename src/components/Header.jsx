@@ -40,6 +40,9 @@ export default function Header() {
         <li className="mb-2 lg:mb-0 lg:mr-4">
           <Link to='/cart' className="text-blue-500 hover:text-blue-700">Cart</Link>
         </li>
+        <li className="mb-2 lg:mb-0 lg:mr-4">
+          <Link to='/wishlist' className="text-blue-500 hover:text-blue-700">Wishlist</Link>
+        </li>
 
         {(isLoggedIn === 'false' || !isLoggedIn || isLoggedIn == null || isLoggedIn == 'null') ?
 
@@ -51,8 +54,8 @@ export default function Header() {
           // <li>Profile</li> 
           <li>
             <Link to='/profile' className="text-blue-500 hover:text-blue-700">
-              <img src={avatar} alt="profile" className='rounded-full md:w-1/3 md:block hidden' />
-              <span className='md:hidden'>Profile</span>
+              <img src={avatar} alt="profile" className='rounded-full md:w-1/3 lg:block hidden' />
+              <span className='lg:hidden'>Profile</span>
             </Link>
           </li>
         }

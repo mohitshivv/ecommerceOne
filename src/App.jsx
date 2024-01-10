@@ -13,11 +13,18 @@ import Error from './components/Error';
 import ProductDetails from './components/ProductDetails';
 import Profile from './components/Profile';
 
+// redux setup
+import { Provider } from 'react-redux';
+import Store from './redux/Store';
+import WishList from './components/WishList';
+
 export default function App() {
   return (
 
 
     <UserContext>
+    <Provider store={Store}>
+
 
 
       <BrowserRouter>
@@ -32,6 +39,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/wishlist' element={<WishList />} />
           <Route path='/productdetails/:id' element={<ProductDetails />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
@@ -39,6 +47,7 @@ export default function App() {
 
         </Routes>
       </BrowserRouter>
+    </Provider>
     </UserContext>
   )
 }

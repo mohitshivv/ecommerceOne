@@ -26,6 +26,7 @@ export default function Home() {
       })
       .catch(err => {
         console.log('error in fetching all products: ', err);
+        alert('Some API error, Try after some time.')
       })
     }
     fetchData();
@@ -57,14 +58,14 @@ export default function Home() {
     <div className='my-10'>
 
 
-      <form className="mb-14 flex justify-center border border-gray-500" onSubmit={handleSubmit}>
+      <form className="mb-14 flex justify-center " onSubmit={handleSubmit}>
         <div className="flex items-center">
           <input
             type="text"
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="border p-2 w-64 mr-2"
+            className="border p-2 w-64 mr-2 "
           />
           <button
             type="submit"

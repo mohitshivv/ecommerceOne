@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { REACT_APP_PRODUCT_DETAILS_API } from '../utils';
 import ProductDetailsShimmer from '../shimmerUI/ProductDetailsShimmer';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
+import { addToWishlist } from '../redux/wishlistSlice';
 
 const ProductDetails = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState([]);
 
+  const isLoggedIn = localStorage.getItem('login');
   useEffect(() => {
     const fetchData = () => {
       fetch(REACT_APP_PRODUCT_DETAILS_API + id)
@@ -16,22 +20,41 @@ const ProductDetails = () => {
           console.log(result);
           setProduct(result);
         })
-        .catch((err) =>
+        .catch((err) => {
           console.log('error in fetching product details', err)
-        );
+          alert('Some API error, Try after some time.')
+        });
     };
 
     fetchData();
   }, [id]);
 
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const handleAddToCart = () => {
     // Implement your logic to add the product to the cart
     console.log('Added to Cart:', product);
+    if (isLoggedIn == 'true')
+      dispatch(addToCart(product));
+    else {
+      alert('login first')
+      navigate('../login');
+    }
+
+
   };
 
   const handleAddToWishlist = () => {
     // Implement your logic to add the product to the wishlist
     console.log('Added to Wishlist:', product);
+    if (isLoggedIn == 'true')
+      dispatch(addToWishlist(product));
+    else {
+      alert('login first')
+      navigate('../login');
+    }
   };
 
   return product.length === 0 ? (
