@@ -46,7 +46,7 @@ export default function WishList() {
     </div>) : (
     <div>
 
-      <div className="container flex flex-wrap justify-between mx-auto my-10">
+      <div className="container flex flex-wrap justify-center mx-auto my-10">
 
         {currentUserData.map((item, index) => (
 
