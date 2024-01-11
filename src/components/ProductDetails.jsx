@@ -39,7 +39,7 @@ const ProductDetails = () => {
     if (isLoggedIn == 'true')
       dispatch(addToCart(product));
     else {
-      alert('login first')
+      alert('Please login first')
       navigate('../login');
     }
 
@@ -52,7 +52,7 @@ const ProductDetails = () => {
     if (isLoggedIn == 'true')
       dispatch(addToWishlist(product));
     else {
-      alert('login first')
+      alert('Please login first')
       navigate('../login');
     }
   };

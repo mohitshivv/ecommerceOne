@@ -8,7 +8,10 @@ import { clearCart } from '../redux/cartSlice';
 export default function Cart() {
 
   const { isLoggedIn } = useContext(userContext);
-  const currentUser = JSON.parse(atob(localStorage.getItem('currentUser')))
+  const temp = localStorage.getItem('currentUser')
+  let currentUser=[];
+  if(temp)
+    currentUser = JSON.parse(atob(temp))
   console.log('current user from cart', currentUser)
 
   // clear cart items

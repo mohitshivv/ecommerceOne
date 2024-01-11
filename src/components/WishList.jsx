@@ -8,7 +8,11 @@ import { clearWishlist } from '../redux/wishlistSlice';
 export default function WishList() {
 
   const { isLoggedIn } = useContext(userContext);
-  const currentUser = JSON.parse(atob(localStorage.getItem('currentUser')))
+  const temp = localStorage.getItem('currentUser')
+
+  let currentUser=[];
+  if(temp)
+    currentUser = JSON.parse(atob(temp))
   console.log('current user from wishlist', currentUser)
 
 
