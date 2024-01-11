@@ -2,9 +2,9 @@ setup routes - completed
 display all products - completed
 search box for product - completed
 particular product details using params - completed
-cart page, from that remove from cart functionality -
+cart page, from that remove from cart functionality - 
 setup context for user logic and for storing current user details
-redux for cart items
+redux for cart items - completed
 useonline to proper message when user is offline
 Login
 user profile

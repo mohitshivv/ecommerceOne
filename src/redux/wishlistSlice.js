@@ -56,7 +56,3 @@ const wishlistSlice = createSlice({
 
 export const {addToWishlist, clearWishlist} = wishlistSlice.actions;
 export default wishlistSlice.reducer;
-
-
-// store current userid with the each product 
-// at the time of insert again, check with the condition of current user

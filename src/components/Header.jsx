@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { userContext } from '../context/UserContext';
 
 // import '../../public/avatar.png'; ;
-import avatar from '../../public/avatar.png';
+import avatar from '/avatar.png';
 
 export default function Header() {
   const [showLinks, setShowLinks] = useState(false);

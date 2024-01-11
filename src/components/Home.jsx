@@ -3,6 +3,8 @@ import HomeShimmer from '../shimmerUI/HomeShimmer';
 import ShowProduct from './ShowProduct';
 import { REACT_APP_PRODUCTS_API } from '../utils';
 import { userContext } from '../context/UserContext';
+import useOnline from '../customHooks/useOnline';
+import Offline from './Offline';
 
 export default function Home() {
 
@@ -11,6 +13,9 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const {setIsLoggedIn} = useContext(userContext);
+
+  // check for the online status using useOnline Hooks
+  const isOnline = useOnline();
 
 
   useEffect(() => {
@@ -49,6 +54,11 @@ export default function Home() {
     
   };
 
+
+  if(!isOnline){
+    console.log('returning offline component');
+    return <Offline/>
+  }
   if(data.length == 0){
     return <HomeShimmer/>
   }
