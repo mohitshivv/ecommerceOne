@@ -17,42 +17,34 @@ const ProductDetails = () => {
       fetch(REACT_APP_PRODUCT_DETAILS_API + id)
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           setProduct(result);
         })
         .catch((err) => {
-          console.log('error in fetching product details', err)
-          alert('Some API error, Try after some time.')
+          console.log('error in fetching product details', err);
+          alert('Some API error, Try after some time.');
         });
     };
 
     fetchData();
   }, [id]);
 
-
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    // Implement your logic to add the product to the cart
     console.log('Added to Cart:', product);
-    if (isLoggedIn == 'true')
-      dispatch(addToCart(product));
+    if (isLoggedIn === 'true') dispatch(addToCart(product));
     else {
-      alert('Please login first')
+      alert('Please login first');
       navigate('../login');
     }
-
-
   };
 
   const handleAddToWishlist = () => {
-    // Implement your logic to add the product to the wishlist
     console.log('Added to Wishlist:', product);
-    if (isLoggedIn == 'true')
-      dispatch(addToWishlist(product));
+    if (isLoggedIn === 'true') dispatch(addToWishlist(product));
     else {
-      alert('Please login first')
+      alert('Please login first');
       navigate('../login');
     }
   };
@@ -60,8 +52,8 @@ const ProductDetails = () => {
   return product.length === 0 ? (
     <ProductDetailsShimmer />
   ) : (
-    <div className="container mx-auto my-8">
-      <div className="flex flex-col justify-center lg:flex-row mx-auto ">
+    <div className=" mx-atuo py-8 dark:text-white dark:bg-gray-900 h-[100vh]">
+      <div className="flex flex-col justify-center lg:flex-row mx-auto">
         <div className="lg:w-1/4 w-3/4 mx-auto flex items-center">
           <img
             src={product.image}
@@ -69,12 +61,14 @@ const ProductDetails = () => {
             className="w-full h-auto mb-4 lg:mb-0"
           />
         </div>
-        <div className="lg:w-1/2 px-8">
+        <div className="lg:w-1/2 px-8 dark:bg-gray-900 dark:text-white">
           <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-          <p className="text-gray-700 mb-4">{product.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            {product.description}
+          </p>
           <p className="text-2xl font-bold mb-4">${product.price}</p>
           <div className="mb-4">
-            <span className="text-gray-600">Rating:</span>{' '}
+            <span className="text-gray-600 dark:text-gray-400">Rating:</span>{' '}
             {product.rating.rate} ({product.rating.count} reviews)
           </div>
           <div className="flex flex-col lg:flex-row">

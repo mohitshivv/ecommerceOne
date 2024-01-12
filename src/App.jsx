@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import context
@@ -17,37 +17,43 @@ import Profile from './components/Profile';
 import { Provider } from 'react-redux';
 import Store from './redux/Store';
 import WishList from './components/WishList';
+import ThemeContext, { themeContext } from './context/ThemeContext';
 
 export default function App() {
+
+  const { darkMode } = useContext(themeContext);
   return (
 
-
-    <UserContext>
-    <Provider store={Store}>
+      <div className={` ${darkMode && (darkMode == 'true' || darkMode == true) && 'dark'} dark:bg-gray-900`}>
 
 
-
-      <BrowserRouter>
-
-        <div>
-          {/* <h1 className="font-bold text-xl">App is working</h1> */}
-          <Header />
-        </div>
+        <UserContext>
+          <Provider store={Store}>
 
 
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/wishlist' element={<WishList />} />
-          <Route path='/productdetails/:id' element={<ProductDetails />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='*' element={<Error />} />
+            <BrowserRouter>
 
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-    </UserContext>
+              <div>
+                {/* <h1 className="font-bold text-xl">App is working</h1> */}
+                <Header />
+              </div>
+
+
+
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/wishlist' element={<WishList />} />
+                <Route path='/productdetails/:id' element={<ProductDetails />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='*' element={<Error />} />
+
+              </Routes>
+            </BrowserRouter>
+          </Provider>
+        </UserContext>
+      </div>
   )
 }

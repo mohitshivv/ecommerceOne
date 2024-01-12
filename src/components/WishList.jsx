@@ -38,15 +38,15 @@ export default function WishList() {
   console.log('current user data from wishlist', currentUserData);
 
   return (currentUserData.length == 0) ?
-    (<div className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4 animate-bounce">Oops! No product found</h1>
-          <p className="text-gray-600">Please add some products.</p>
-        </div>
-    </div>) : (
-    <div>
+    (<div className="flex items-center justify-center h-screen dark:bg-gray-900 ">
+    <div className="text-center">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4 animate-bounce  dark:text-white">Oops! No product found</h1>
+      <p className="text-gray-600  dark:text-gray-300">Please add some products.</p>
+    </div>
+  </div>) : (
+    <div className='dark:bg-gray-900 h-[92vh]'>
 
-      <div className="container flex flex-wrap justify-center mx-auto my-10">
+      <div className="container flex flex-wrap justify-center mx-auto py-10">
 
         {currentUserData.map((item, index) => (
 
