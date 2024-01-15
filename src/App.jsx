@@ -18,6 +18,7 @@ import { Provider } from 'react-redux';
 import Store from './redux/Store';
 import WishList from './components/WishList';
 import ThemeContext, { themeContext } from './context/ThemeContext';
+import Checkout from './components/Checkout';
 
 export default function App() {
 
@@ -47,6 +48,7 @@ export default function App() {
                 <Route path='/wishlist' element={<WishList />} />
                 <Route path='/productdetails/:id' element={<ProductDetails />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/checkout' element={<Checkout />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='*' element={<Error />} />
 

@@ -19,7 +19,9 @@ export default function UserContext({ children }) {
     for (let i = 0; i < allUsers.length; i++) {
       if (allUsers[i].email === values.email && allUsers[i].password === values.password) {
         console.log('user found',allUsers[i]);
-        alert('LogIn Successfully.')
+        // alert('LogIn Successfully.')
+        swal("Congratulations!", "Login Successful", "success")
+
         setIsLoggedIn(true);
       
         localStorage.setItem('currentUser',btoa(JSON.stringify(allUsers[i])));

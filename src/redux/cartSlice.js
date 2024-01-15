@@ -24,10 +24,14 @@ const cartSlice = createSlice({
                 console.log('combined data',combined)
 
                 state.items.push(combined)
-                alert('Added to Cart');
+                // alert('Added to Cart');
+                swal("Congratulations!", "Item added to cart", "success")
+
             }
             else{
-                alert("Already added to cart");
+                // alert("Already added to cart");
+                swal("Sorry!", "Item already added to cart", "error")
+
             }
         },
         clearCart: (state, action)=>{

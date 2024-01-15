@@ -21,7 +21,8 @@ const ProductDetails = () => {
         })
         .catch((err) => {
           console.log('error in fetching product details', err);
-          alert('Some API error, Try after some time.');
+          // alert('Some API error, Try after some time.');
+          swal("Oops!", "Some API Error!", "error")
         });
     };
 
@@ -35,18 +36,17 @@ const ProductDetails = () => {
     console.log('Added to Cart:', product);
     if (isLoggedIn === 'true') dispatch(addToCart(product));
     else {
-      alert('Please login first');
-      navigate('../login');
-    }
+      // alert('Please login first');
+      swal("Oops!", "You are not logged in, first login!", "error")
+      .then(()=> navigate('../login'))}
   };
 
   const handleAddToWishlist = () => {
     console.log('Added to Wishlist:', product);
     if (isLoggedIn === 'true') dispatch(addToWishlist(product));
     else {
-      alert('Please login first');
-      navigate('../login');
-    }
+      swal("Oops!", "You are not logged in, first login!", "error")
+      .then(()=> navigate('../login'))}
   };
 
   return product.length === 0 ? (
@@ -54,11 +54,11 @@ const ProductDetails = () => {
   ) : (
     <div className=" mx-atuo py-8 dark:text-white dark:bg-gray-900 h-[100vh]">
       <div className="flex flex-col justify-center lg:flex-row mx-auto">
-        <div className="lg:w-1/4 w-3/4 mx-auto flex items-center">
+        <div className="lg:w-1/4 w-3/4 mx-auto flex items-center justify-center">
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-auto mb-4 lg:mb-0"
+            className="w-1/2 lg:w-full h-auto mb-4 lg:mb-0"
           />
         </div>
         <div className="lg:w-1/2 px-8 dark:bg-gray-900 dark:text-white">

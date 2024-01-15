@@ -11,7 +11,7 @@ export default function WishList() {
   const temp = localStorage.getItem('currentUser')
 
   let currentUser=[];
-  if(temp)
+  if(temp && temp!='null')
     currentUser = JSON.parse(atob(temp))
   console.log('current user from wishlist', currentUser)
 
@@ -40,8 +40,8 @@ export default function WishList() {
   return (currentUserData.length == 0) ?
     (<div className="flex items-center justify-center h-screen dark:bg-gray-900 ">
     <div className="text-center">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4 animate-bounce  dark:text-white">Oops! No product found</h1>
-      <p className="text-gray-600  dark:text-gray-300">Please add some products.</p>
+      <h1 className="text-3xl font-bold text-gray-800 mb-4 animate-bounce  dark:text-white">Oops! No item found in wishlist</h1>
+      <p className="text-gray-600  dark:text-gray-300">Please add some Items.</p>
     </div>
   </div>) : (
     <div className='dark:bg-gray-900 h-[92vh]'>

@@ -38,9 +38,7 @@ export default function Login() {
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email').required('Required'),
-      password: Yup.string()
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
+      password: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
     }),
   });
 

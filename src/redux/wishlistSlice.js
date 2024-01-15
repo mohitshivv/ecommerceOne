@@ -25,10 +25,14 @@ const wishlistSlice = createSlice({
                 console.log('combined data',combined)
 
                 state.items.push(combined)
-                alert('Added to wishlist');
+                // alert('Added to wishlist');
+                swal("Congratulations!", "Item added to wishlist", "success")
+
             }
             else{
-                alert("Already added to wishlist");
+                // alert("Already added to wishlist");
+                swal("Sorry!", "Item already added to wishlist", "error")
+
             }
         },
         clearWishlist: (state, action)=>{

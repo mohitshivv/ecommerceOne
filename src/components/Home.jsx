@@ -26,7 +26,8 @@ export default function Home() {
         })
         .catch((err) => {
           console.log('error in fetching all products: ', err);
-          alert('Some API error, Try after some time.');
+          // alert('Some API error, Try after some time.');
+          swal("Oops!", "Some API error!", "error")
         });
     };
     fetchData();

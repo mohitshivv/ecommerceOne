@@ -8,7 +8,9 @@ const ShowProduct = ({ data }) => {
       <Link to={`/productdetails/${data.id}`}>
         <div className="w-full flex justify-center">
           <img
-            className="w-full h-60 object-cover"
+            className="w-full aspect-[1] bg-blend-multiply"
+            // className="w-full h-60 object-cover"
+
             src={data.image}
             alt={data.category}
           />
