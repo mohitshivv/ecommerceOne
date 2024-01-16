@@ -17,10 +17,10 @@ export default function HomeShimmer() {
         </div>
       </div>
 
-      <div className="container flex flex-wrap justify-between mx-auto">
+      <div className="container flex flex-wrap justify-center mx-auto">
 
         {arr.map((_, index) => (
-          <div key={index} className="max-w-sm w-sm w-[325px] rounded overflow-hidden shadow-lg mb-5 mx-3 border border-gray-200 hover:scale-105 duration-150 hover:shadow-2xl dark:bg-gray-800">
+          <div key={index} className="max-w-sm w-sm w-[325px] rounded mx-8 overflow-hidden shadow-lg mb-5 border border-gray-200 hover:scale-105 duration-150 hover:shadow-2xl dark:bg-gray-800">
 
             <div className="w-full flex justify-center">
               <img

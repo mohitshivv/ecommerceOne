@@ -1,8 +1,9 @@
 // Filename - Components/Switcher.js
 
 import { useContext, useState } from "react";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { themeContext } from "../context/ThemeContext";
+import lightSVG from '../../public/light.svg';
+import darkSVG from '../../public/darkmode.svg'
 
 export default function Switcher() {
 
@@ -10,12 +11,12 @@ export default function Switcher() {
 
 	return (
 		<div>
-			<DarkModeSwitch
-				// style={{  display:"flex", alignItems:"center", border:"2px"}}
-				checked={!darkMode}
-				size={30}
-				onClick={toggleTheme}
-			/>
+			
+
+			<button onClick={toggleTheme} className="w-[35px]">
+				{darkMode? <img src={lightSVG}/> : <img src={darkSVG}/>}
+				
+			</button>
 		</div>
 	);
 }

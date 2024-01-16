@@ -27,7 +27,7 @@ export default function Checkout() {
 
   return (
     <div className="pt-8 w-full dark:bg-gray-900">
-      <div className="w-1/2 mx-auto h-[87vh]">
+      <div className="w-full px-3 lg:w-1/2 mx-auto h-[87vh]">
         <h1 className="dark:text-white text-gray-800 text-3xl font-bold mb-4">Payment Form</h1>
 
 

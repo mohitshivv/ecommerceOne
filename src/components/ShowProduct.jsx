@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const ShowProduct = ({ data }) => {
   return (
-    <div className="max-w-sm w-sm w-[325px] rounded overflow-hidden shadow-lg mb-5 mx-3 border border-gray-200 hover:scale-105 duration-150 hover:shadow-2xl dark:border-gray-700">
+    <div className="max-w-sm w-sm w-[250px] lg:w-[325px] rounded overflow-hidden shadow-lg mb-5 mx-8 border border-gray-200 hover:scale-105 duration-150 hover:shadow-2xl dark:border-gray-700">
 
       <Link to={`/productdetails/${data.id}`}>
         <div className="w-full flex justify-center">
           <img
-            className="w-full aspect-[1] bg-blend-multiply"
+            className="w-full p-2 lg:px-0  lg:w-full  aspect-[1] bg-blend-multiply"
             // className="w-full h-60 object-cover"
 
             src={data.image}

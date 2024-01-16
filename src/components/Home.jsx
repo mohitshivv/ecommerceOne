@@ -5,6 +5,7 @@ import { REACT_APP_PRODUCTS_API } from '../utils';
 import { userContext } from '../context/UserContext';
 import useOnline from '../customHooks/useOnline';
 import Offline from './Offline';
+import HeaderCarousel from './HeaderCarousel';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -55,7 +56,8 @@ export default function Home() {
   }
 
   return (
-    <div className='py-10 dark:bg-gray-800'>
+    <div className='pb-10 dark:bg-gray-800'>
+      <HeaderCarousel/>
       <form className="mb-14 flex justify-center" onSubmit={handleSubmit}>
         <div className="flex items-center">
           <input
@@ -76,7 +78,7 @@ export default function Home() {
       {filterData && filterData.length === 0 ? (
         <h1 className="text-white dark:text-gray-300">No data found.</h1>
       ) : (
-        <div className="container flex flex-wrap justify-between mx-auto">
+        <div className="container flex flex-wrap justify-center mx-auto">
           {filterData.map((currdata, index) => (
             <ShowProduct data={currdata} key={currdata.id} />
           ))}
