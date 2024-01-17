@@ -8,7 +8,7 @@ const ShowProduct = ({ data }) => {
       <Link to={`/productdetails/${data.id}`}>
         <div className="w-full flex justify-center">
           <img
-            className="w-full p-2 lg:px-0  lg:w-full  aspect-[1] bg-blend-multiply"
+            className="w-full p-2 lg:p-0  lg:w-full  aspect-[1] bg-blend-multiply"
             // className="w-full h-60 object-cover"
 
             src={data.image}

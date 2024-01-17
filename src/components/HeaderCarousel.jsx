@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import banner1 from '/public/images/banners/1.jpg';
-import banner2 from '/public/images/banners/2.jpg';
-import banner3 from '/public/images/banners/3.jpg';
-import banner4 from '/public/images/banners/4.jpg';
+import banner1 from '/images/banners/1.jpg';
+import banner2 from '/images/banners/2.jpg';
+import banner3 from '/images/banners/3.jpg';
+import banner4 from '/images/banners/4.jpg';
 
 export default function HeaderCarousel() {
 const CarouselContent = [{
@@ -50,7 +50,7 @@ const CarouselContent = [{
           <p className={`w-2 h-2 lg:w-3 lg:h-3 ${index === currIndex ?'bg-white': 'bg-gray-500'} border border-gray-500 rounded-lg mx-3`} key={index}></p>
           ))}
       </div>
-          {CarouselContent[currIndex].id}
+          {/* {CarouselContent[currIndex].id} */}
     </div>
   );
 }

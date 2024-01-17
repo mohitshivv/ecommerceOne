@@ -6,6 +6,8 @@ import { userContext } from '../context/UserContext';
 import useOnline from '../customHooks/useOnline';
 import Offline from './Offline';
 import HeaderCarousel from './HeaderCarousel';
+import Filter from './Filter';
+import AboutPage from './AboutPage';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -24,6 +26,7 @@ export default function Home() {
         .then((result) => {
           setData(result);
           setFilterData(result);
+          // console.log(result)
         })
         .catch((err) => {
           console.log('error in fetching all products: ', err);
@@ -47,6 +50,29 @@ export default function Home() {
     setFilterData(filteredProducts);
   };
 
+  const handleFilter = (filters)=>{
+    console.log(filters);
+
+    // const filteredData = [];
+    // for(let i=0;i<data.length;i++){
+    //   if(filters.cate == 'All' && )
+    // }
+    console.log('rating', parseInt(filters.price))
+    const filteredData = data.filter((curr)=>(
+      ((filters.category).toLowerCase() === 'all' || curr.category == filters.category)  &&
+     ( (filters.price).toLowerCase() === 'all' || curr.price < parseInt(filters.price)) &&
+     ((filters.rating).toLowerCase() === 'all' || Math.round(curr.rating.rate) === parseInt(filters.rating))
+    ))
+
+    console.log('filtered data', filteredData);
+    setFilterData(filteredData);
+
+  }
+
+
+
+
+
   if (!isOnline) {
     return <Offline />;
   }
@@ -58,6 +84,7 @@ export default function Home() {
   return (
     <div className='pb-10 dark:bg-gray-800'>
       <HeaderCarousel/>
+      <Filter data={data} handleFilter={handleFilter}/>
       <form className="mb-14 flex justify-center" onSubmit={handleSubmit}>
         <div className="flex items-center">
           <input
@@ -76,7 +103,7 @@ export default function Home() {
         </div>
       </form>
       {filterData && filterData.length === 0 ? (
-        <h1 className="text-white dark:text-gray-300">No data found.</h1>
+        <h1 className="text-gray-900 dark:text-gray-300 animate-bounce text-2xl font-bold text-center ">No data found.</h1>
       ) : (
         <div className="container flex flex-wrap justify-center mx-auto">
           {filterData.map((currdata, index) => (
@@ -84,6 +111,8 @@ export default function Home() {
           ))}
         </div>
       )}
+
+      <AboutPage/>
     </div>
   );
 }

@@ -2,8 +2,8 @@
 
 import { useContext, useState } from "react";
 import { themeContext } from "../context/ThemeContext";
-import lightSVG from '../../public/light.svg';
-import darkSVG from '../../public/darkmode.svg'
+import lightSVG from '/light.svg';
+import darkSVG from '/darkmode.svg'
 
 export default function Switcher() {
 

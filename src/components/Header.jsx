@@ -52,7 +52,7 @@ export default function Header() {
             </Link>
           </li>
         }
-        <li className='flex justify-center items-center mx-5 my-3'> <Switcher /></li>
+        <li className='flex justifys items-center mx-5 my-3'> <Switcher /></li>
       </ul>
 
     </div>
