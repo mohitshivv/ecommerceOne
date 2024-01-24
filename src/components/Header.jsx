@@ -33,7 +33,7 @@ export default function Header() {
         </li>
         <li className="mb-2 lg:mb-0 lg:mr-4">
           <Link to='/cart' className="text-blue-500 dark:text-blue-300 hover:text-blue-700">Cart</Link>
-        </li>
+        </li> 
         <li className="mb-2 lg:mb-0 lg:mr-4">
           <Link to='/wishlist' className="text-blue-500 dark:text-blue-300 hover:text-blue-700">Wishlist</Link>
         </li>
