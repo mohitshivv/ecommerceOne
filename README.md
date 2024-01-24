@@ -1,15 +1,15 @@
 # VirtuCart - Ecommerce Platform
 
-![VirtuCart](./screenshot.png)
 
 ## Table of Contents
 
 1. [Overview](#overview)
 2. [Features](#features)
-3. [How to Use](#how-to-use)
-4. [Project Structure](#project-structure)
-5. [Technologies Used](#technologies-used)
-6. [Testing Credentials](#testing-credentials)
+3. [Screenshots](#screenshots)
+4. [How to Use](#how-to-use)
+5. [Project Structure](#project-structure)
+6. [Technologies Used](#technologies-used)
+7. [Testing Credentials](#testing-credentials)
 
 ## Overview
 
@@ -38,6 +38,35 @@ VirtuCart is a React-based ecommerce platform that utilizes technologies like Re
 - **Form Validation:** Implement form validation using Formik and Yup for a seamless user experience.
 
 - **Alerts:** Integrate SweetAlert for user-friendly alerts and notifications.
+
+## Screenshots
+
+Home Page
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/5742ab00-2a40-42ef-b0a0-2c849c11fd08)
+
+Product Listing
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/9f70fcc4-2105-4703-9847-b92441396bb0)
+
+Filters
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/e56928d8-b96c-4ebe-bde6-ccdd64683fea)
+
+Product Details
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/69eee27e-26c0-43a7-a876-c6cdafaea005)
+
+Add to cart
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/b36f666a-0051-49cf-b343-f111d02bfcf2)
+
+Cart Page
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/2646bd1a-7c17-4d00-b73f-0219ac52c417)
+
+Checkout
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/e4af8833-4a42-4bc2-8abd-5f5619288af0)
+
+Profile
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/a32231d0-cb21-44d7-ab12-f3cd88136796)
+
+Light Mode
+![image](https://github.com/utkarshgupta04092003/ecommerce-using-fakestoreapi/assets/63789702/db939d8a-3697-4a09-b491-0b243000ad04)
 
 ## How to Use
 
@@ -95,8 +124,7 @@ To test the website, use the following credentials:
 
 - **Email:** don@gmail.com
 - **Password:** ewedon
-or
-
+- Or
 - **Email:** morrison@gmail.com
 - **Password:** 83r5^_
 
