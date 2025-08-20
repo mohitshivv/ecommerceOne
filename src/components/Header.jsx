@@ -10,12 +10,10 @@ export default function Header() {
   const { isLoggedIn } = useContext(userContext);
 
   return (
-    <div className="bg-gradient-to-r from-gray-400 to-gray-200 dark:from-gray-800 dark:to-gray-700 border-b border-gray-300 p-2 flex flex-col lg:flex-row lg:justify-between transition-all duration-300 lg:h-[8vh]">
+    <div className="bg-gradient-to-r from-amber-900 to-amber-700 dark:from-stone-900 dark:to-stone-900 text-white dark:text-stone-100 border-b border-amber-950 dark:border-stone-800 p-2 flex flex-col lg:flex-row lg:justify-between transition-all duration-300 lg:h-[8vh]">
 
       <div className="flex justify-between items-center">
-        <div className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-          VirtuCart
-        </div>
+        <div className="text-2xl font-bold text-gray-800 dark:text-gray-200">SwiftShop</div>
 
         {/* Toggle Button for Mobile View */}
         <button
