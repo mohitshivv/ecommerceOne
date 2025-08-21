@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import banner1 from '/images/banners/1.jpg';
-import banner2 from '/images/banners/2.jpg';
-import banner3 from '/images/banners/3.jpg';
-import banner4 from '/images/banners/4.jpg';
+import banner2 from '/images/banners/2.png';
+import banner3 from '/images/banners/3.png';
+import banner4 from '/images/banners/4.png';
+import banner5 from '/images/banners/5.png';
 
 export default function HeaderCarousel() {
 const CarouselContent = [{
@@ -21,6 +22,10 @@ const CarouselContent = [{
     id: 4,
     src: banner4,
     alt: "image 4"
+  },{
+    id: 5,
+    src: banner5,
+    alt: "image 5"
   }]
 
   const [currIndex, setCurrIndex] = useState(0);

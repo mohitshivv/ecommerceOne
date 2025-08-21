@@ -2,13 +2,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './cartSlice';
 import wishlistReducer from './wishlistSlice';
-// If you have products/search slice, import it too
+import productsReducer from './productsSlice';
 
 const Store = configureStore({
 reducer: {
 cart: cartReducer,
 wishlist: wishlistReducer,
-// products: productsReducer, // if present
+products: productsReducer,
 },
 });
 

@@ -1,23 +1,25 @@
+
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import HeaderCarousel from './HeaderCarousel';
 import Filter from './Filter';
 import AboutPage from './AboutPage';
+
 const Stars = ({ value = 0 }) => {
-  const full = Math.floor(value);
-  const half = value - full >= 0.5;
-  const total = 5;
-  return (
-  <span className="inline-flex items-center text-yellow-500">
-  {Array.from({ length: total }).map((_, i) => {
-  if (i < full) return <span key={i}>★</span>;
-  if (i === full && half) return <span key={i}>☆</span>;
-  return <span key={i} className="text-gray-300 dark:text-gray-600">★</span>;
-  })}
-  </span>
-  );
-  };
+const full = Math.floor(value);
+const half = value - full >= 0.5;
+const total = 5;
+return (
+<span className="inline-flex items-center text-yellow-500">
+{Array.from({ length: total }).map((_, i) => {
+if (i < full) return <span key={i}>★</span>;
+if (i === full && half) return <span key={i}>☆</span>;
+return <span key={i} className="text-gray-300 dark:text-gray-600">★</span>;
+})}
+</span>
+);
+};
 
 export default function Home() {
 const dispatch = useDispatch();
@@ -26,9 +28,10 @@ const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 const [err, setErr] = useState(null);
 
-// Add state to keep track of current filter selection
+// Current filter selection
 const [filters, setFilters] = useState({ category: 'All', price: 'All', rating: 'All' });
 
+// Global search from Redux
 const search = useSelector((s) => s?.products?.search || '');
 
 useEffect(() => {
@@ -53,40 +56,44 @@ cancelled = true;
 }, []);
 
 const filtered = useMemo(() => {
-  let list = Array.isArray(products) ? products : [];
-  // Apply search filter
-  const q = (search || '').toLowerCase();
-  if (q) {
-  list = list.filter((p) => (p?.title || '').toLowerCase().includes(q));
-  }
-  // Apply category filter
-  if (filters.category && filters.category !== 'All') {
-  list = list.filter((p) => p.category === filters.category);
-  }
-  // Apply price filter
-  if (filters.price && filters.price !== 'All') {
-  const maxPrice = Number(filters.price);
-  list = list.filter((p) => p.price <= maxPrice);
-  }
-  // Apply rating filter
-  if (filters.rating && filters.rating !== 'All') {
-  const minRating = Number(filters.rating);
-  list = list.filter((p) => p?.rating?.rate >= minRating);
-  }
-  return list;
-  }, [products, search, filters]);
+let list = Array.isArray(products) ? products : [];
+// Apply search filter
+const q = (search || '').toLowerCase().trim();
+if (q) {
+list = list.filter((p) => (p?.title || '').toLowerCase().includes(q));
+}
+// Apply category filter
+if (filters.category && filters.category !== 'All') {
+list = list.filter((p) => p.category === filters.category);
+}
+// Apply price filter
+if (filters.price && filters.price !== 'All') {
+const maxPrice = Number(filters.price);
+list = list.filter((p) => p.price <= maxPrice);
+}
+// Apply rating filter
+if (filters.rating && filters.rating !== 'All') {
+const minRating = Number(filters.rating);
+list = list.filter((p) => p?.rating?.rate >= minRating);
+}
+return list;
+}, [products, search, filters]);
+
+// Show slider only when search is empty
+const showSlider = !((search || '').trim());
 
 return (
-<div className="max-w-7xl mx-auto px-4 py-4">
-<div className="mb-6">
+<div className="max-w-7xl mx-auto px-4 pt-0 pb-4">
+{showSlider && (
+// Full-bleed slider wrapper: breaks out of centered container, no gaps
+<div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] m-0 p-0">
 <HeaderCarousel />
 </div>
-
+)}
 
   <div className="mb-4">
-  <Filter products={products} handleFilter={setFilters} />
-</div>
-
+    <Filter products={products} handleFilter={setFilters} />
+  </div>
 
   {loading && (
     <div className="text-center text-gray-600 dark:text-gray-400 py-10">
@@ -130,8 +137,11 @@ return (
           <div className="mt-2 font-bold text-gray-900 dark:text-gray-100">
             ${p.price}
           </div>
-          <div className="mt-1 text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2"> <Stars value={p?.rating?.rate ?? 0} /> <span className="text-xs text-gray-500">({p?.rating?.count ?? 0})</span>
-           </div>
+
+          <div className="mt-1 text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+            <Stars value={p?.rating?.rate ?? 0} />
+            <span className="text-xs text-gray-500">({p?.rating?.count ?? 0})</span>
+          </div>
         </div>
       ))}
 
@@ -142,6 +152,7 @@ return (
       )}
     </div>
   )}
+
   <AboutPage />
 </div>
 );
