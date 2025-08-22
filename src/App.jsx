@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -17,32 +18,39 @@ import WishList from './components/WishList';
 import ProductDetails from './components/ProductDetails';
 import Login from './components/Login';
 import Checkout from './components/Checkout';
-import Profile from './components/Profile';
+import Profile from './components/Profile'; // use the page you created
 import Error from './components/Error';
+import AddressForm from './checkout/AddressForm';
+import PaymentForm from './checkout/PaymentForm';
+import OrderSuccess from './checkout/OrderSuccess';
+
 
 export default function App() {
-const { darkMode } = useContext(themeContext) || {};
-const isDark = darkMode === 'true' || darkMode === true;
+  const { darkMode } = useContext(themeContext) || {};
+  const isDark = darkMode === 'true' || darkMode === true;
 
-return (
-<div className={`${isDark ? 'dark' : ''} dark:bg-gray-900 min-h-screen`}>
-<UserContext>
-<Provider store={Store}>
-<BrowserRouter>
-<Header />
-<Routes>
-<Route path="/" element={<Home />} />
-<Route path="/cart" element={<Cart />} />
-<Route path="/wishlist" element={<WishList />} />
-<Route path="/productdetails/:id" element={<ProductDetails />} />
-<Route path="/login" element={<Login />} />
-<Route path="/checkout" element={<Checkout />} />
-<Route path="/profile" element={<Profile />} />
-<Route path="*" element={<Error />} />
-</Routes>
-</BrowserRouter>
-</Provider>
-</UserContext>
-</div>
-);
-};
+  return (
+    <div className={`${isDark ? 'dark' : ''} dark:bg-gray-900 min-h-screen`}>
+      <UserContext>
+        <Provider store={Store}>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/wishlist" element={<WishList />} />
+              <Route path="/productdetails/:id" element={<ProductDetails />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<Error />} />
+              <Route path="/checkout/address" element={<AddressForm />} />
+              <Route path="/checkout/payment" element={<PaymentForm />} />
+              <Route path="/checkout/success" element={<OrderSuccess />} />
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </UserContext>
+    </div>
+  );
+}

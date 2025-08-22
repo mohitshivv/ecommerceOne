@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import HeaderCarousel from './HeaderCarousel';
 import Filter from './Filter';
 import AboutPage from './AboutPage';
+import PolicyStrip from './PolicyStrip';
+
+
 
 const Stars = ({ value = 0 }) => {
 const full = Math.floor(value);
@@ -154,6 +157,11 @@ return (
   )}
 
   <AboutPage />
+  <div className="dark:bg-gray-900">
+      <div className="py-10">
+        <PolicyStrip />
+      </div>
+    </div>
 </div>
 );
 }
