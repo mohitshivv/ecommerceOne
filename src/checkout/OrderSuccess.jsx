@@ -31,7 +31,7 @@ export default function OrderSuccess() {
 
         <div className="mt-6 flex gap-3 justify-center">
           <Link to="/" className="px-5 py-2 rounded bg-amber-600 hover:bg-amber-700 text-white">Continue Shopping</Link>
-          <Link to="/orders" className="px-5 py-2 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">View Orders</Link>
+          {/* <Link to="/orders" className="px-5 py-2 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">View Orders</Link> */}
         </div>
       </div>
     </div>

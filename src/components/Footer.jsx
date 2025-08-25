@@ -1,3 +1,4 @@
+// Footer.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaXTwitter, FaInstagram } from 'react-icons/fa6';
@@ -56,10 +57,10 @@ Your one‑stop shop for amazing products. Quality guaranteed.
           Quick Links
         </h3>
         <ul className="space-y-3 text-gray-900 dark:text-gray-200">
-          <li><Link className="hover:text-violet-600" to="/">Home</Link></li>
+          <li><Link className="hover:text-violet-600" to="/about#top">Home</Link></li>
           <li><Link className="hover:text-violet-600" to="/shop">Shop All</Link></li>
-          <li><Link className="hover:text-violet-600" to="/about">About Us</Link></li>
-          <li><Link className="hover:text-violet-600" to="/contact">Contact</Link></li>
+          <li><Link className="hover:text-violet-600" to="/about#top">About Us</Link></li>
+          <li><Link className="hover:text-violet-600" to="/about#top">Contact</Link></li>
         </ul>
       </nav>
 

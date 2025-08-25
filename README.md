@@ -1,4 +1,6 @@
-# VirtuCart - Ecommerce Platform
+// skip this page
+
+<!-- # VirtuCart - Ecommerce Platform
 
 
 ## Table of Contents
@@ -129,4 +131,4 @@ To test the website, use the following credentials:
 - **Password:** 83r5^_
 
 
-Feel free to explore VirtuCart, an ecommerce platform offering a delightful shopping experience!
+Feel free to explore VirtuCart, an ecommerce platform offering a delightful shopping experience! -->

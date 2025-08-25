@@ -9,7 +9,7 @@ import Filter from './Filter';
 import AboutPage from './AboutPage';
 import PolicyStrip from './PolicyStrip';
 import Footer from './Footer';
-import { toggleWishlist } from '../redux/wishlistSlice';
+
 
 /* Small star fallback (not used in the card UI now, kept for compatibility) */
 const Stars = ({ value = 0 }) => {
@@ -106,12 +106,6 @@ return list;
 // Show slider only when search is empty
 const showSlider = !((search || '').trim());
 
-// Wishlist toggle handler
-const handleAddToWishlist = (id) => {
-// Ensure ID is a number for consistent includes checks
-const normalized = Number(id);
-dispatch(toggleWishlist(normalized));
-};
 
 return (
 <div className="max-w-7xl mx-auto px-4 pt-0 pb-4">

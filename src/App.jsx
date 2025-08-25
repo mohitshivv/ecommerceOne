@@ -13,6 +13,7 @@ import Store from './redux/Store';
 // Components
 import Header from './components/Header';
 import Home from './components/Home';
+import AboutPage from './components/AboutPage';
 import Cart from './components/Cart';
 import WishList from './components/WishList';
 import ProductDetails from './components/ProductDetails';
@@ -43,6 +44,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="/wishlist" element={<WishList />} />
                 <Route path="/productdetails/:id" element={<ProductDetails />} />
                 <Route path="/login" element={<Login />} />

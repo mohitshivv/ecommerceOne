@@ -1,11 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import Appcopy from './Appcopy.jsx'
-import './index.css'
+//main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import ThemeProvider from './context/ThemeContext'; // default export provider
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Appcopy />
-  </React.StrictMode>,
-)
+<React.StrictMode>
+<ThemeProvider>
+<App />
+</ThemeProvider>
+</React.StrictMode>
+);
